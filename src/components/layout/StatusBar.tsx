@@ -1,4 +1,3 @@
-import React from 'react';
 import { BookOpen, Monitor, LayoutTemplate, SlidersHorizontal, Minus, Plus } from 'lucide-react';
 
 interface StatusBarProps {
