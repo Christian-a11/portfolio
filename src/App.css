@@ -1,0 +1,106 @@
+/* App-specific styles */
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection color */
+::selection {
+  background-color: var(--word-blue-light);
+  color: var(--word-text);
+}
+
+/* Focus visible styles */
+*:focus-visible {
+  outline: 2px solid var(--word-blue);
+  outline-offset: 2px;
+}
+
+/* Button reset */
+button {
+  cursor: pointer;
+  border: none;
+  background: transparent;
+}
+
+/* Link reset */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Paper animation on scroll */
+@keyframes paperEnter {
+  from {
+    opacity: 0;
+    transform: translateX(50vw) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes paperExit {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-18vw);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .paper-shadow {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  }
+  
+  .ribbon-tab {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.75rem;
+  }
+  
+  .tool-button {
+    min-width: 40px;
+    min-height: 48px;
+  }
+  
+  .tool-button span {
+    display: none;
+  }
+}
+
+/* Print styles */
+@media print {
+  .fixed {
+    position: static !important;
+  }
+  
+  .paper-shadow {
+    box-shadow: none;
+  }
+  
+  section {
+    min-height: auto !important;
+    page-break-inside: avoid;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  html {
+    scroll-behavior: auto;
+  }
+}

@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Georgia&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 14% 97%;
+    --foreground: 210 16% 13%;
+    --card: 0 0% 100%;
+    --card-foreground: 210 16% 13%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 16% 13%;
+    --primary: 209 67% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 9% 46%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 220 13% 91%;
+    --muted-foreground: 215 14% 40%;
+    --accent: 209 67% 50%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 220 9% 83%;
+    --input: 220 9% 83%;
+    --ring: 209 67% 50%;
+    --radius: 0.25rem;
+    
+    /* Word-inspired custom colors */
+    --word-blue: #2B7CD3;
+    --word-blue-dark: #1A5FB4;
+    --word-blue-light: #E8F1FA;
+    --word-bg: #F6F7F9;
+    --word-paper: #FFFFFF;
+    --word-text: #1F2328;
+    --word-text-secondary: #5F6368;
+    --word-border: #D1D5DB;
+    --word-green: #107C10;
+    --word-green-light: #DFF6DD;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-[var(--word-bg)] text-[var(--word-text)];
+    font-family: 'Inter', system-ui, sans-serif;
+    overflow-x: hidden;
+  }
+}
+
+/* Document typography */
+.font-document {
+  font-family: 'Georgia', serif;
+}
+
+.font-ui {
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+}
+
+/* Paper shadow */
+.paper-shadow {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* Word ribbon styles */
+.ribbon-tab {
+  @apply relative px-4 py-2 text-sm font-medium text-[var(--word-text)] transition-colors;
+}
+
+.ribbon-tab:hover {
+  background-color: var(--word-blue-light);
+}
+
+.ribbon-tab.active {
+  color: var(--word-blue);
+}
+
+.ribbon-tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: var(--word-blue);
+}
+
+/* Tool button styles */
+.tool-button {
+  @apply flex flex-col items-center justify-center px-2 py-1 rounded transition-all;
+  min-width: 48px;
+  min-height: 56px;
+}
+
+.tool-button:hover {
+  background-color: var(--word-blue-light);
+}
+
+.tool-button:active {
+  background-color: var(--word-border);
+}
+
+/* Section heading style (Harvard resume) */
+.section-heading {
+  @apply text-xs font-bold uppercase tracking-wider text-[var(--word-text)];
+  font-family: 'Georgia', serif;
+  letter-spacing: 0.08em;
+}
+
+/* Horizontal rule for resume */
+.resume-rule {
+  @apply w-full h-px bg-[var(--word-text)] my-3;
+}
+
+/* Card hover effect */
+.project-card {
+  @apply border border-[var(--word-border)] rounded bg-white transition-all cursor-pointer;
+}
+
+.project-card:hover {
+  border-color: var(--word-blue);
+  background-color: var(--word-blue-light);
+}
+
+/* Form input focus */
+.word-input {
+  @apply w-full px-3 py-2 border border-[var(--word-border)] rounded bg-white transition-all;
+}
+
+.word-input:focus {
+  outline: none;
+  border-color: var(--word-blue);
+  box-shadow: 0 0 0 3px rgba(43, 124, 211, 0.12);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--word-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--word-border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--word-text-secondary);
+}
+
+/* Animation utilities */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleX {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.6s ease-out forwards;
+}
+
+.animate-scale-x {
+  animation: scaleX 0.5s ease-out forwards;
+  transform-origin: left;
+}
+
+/* Stagger delays */
+.stagger-1 { animation-delay: 0.08s; }
+.stagger-2 { animation-delay: 0.16s; }
+.stagger-3 { animation-delay: 0.24s; }
+.stagger-4 { animation-delay: 0.32s; }
+.stagger-5 { animation-delay: 0.40s; }
+.stagger-6 { animation-delay: 0.48s; }
