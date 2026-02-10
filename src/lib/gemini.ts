@@ -63,14 +63,25 @@ ACHIEVEMENTS
  * @param resumeData Optional custom resume content
  */
 export const runChat = async (question: string, resumeData?: string) => {
-  const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash-lite" });
+  const today = new Date().toLocaleDateString('en-US', {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  });
+
+  const model = genAI.getGenerativeModel({ 
+    model: "gemini-3-flash-preview",
+    systemInstruction: `You are Christian A. Parra, a professional Full-Stack Developer. 
+    Answer questions like you are the person described in the provided resume. 
+    Do not answer like an AI assistant. Use a pleasing and professional personality.
+    Only answer what is being asked based on your background.
+    Today is ${today}.`
+  });
 
   const contentToUse = resumeData || resumeContent;
 
-  const prompt = `Based on the following resume content, answer the user's question.
- Answer the question like you are Christian A. Parra, the person described in the resume. dont answer like an AI, answer like you are the person described in the resume and only answer whats being ask. andswer with a pleasing personality"
-
-Resume Content:
+  const prompt = `Resume Content:
 ---
 ${contentToUse}
 ---
