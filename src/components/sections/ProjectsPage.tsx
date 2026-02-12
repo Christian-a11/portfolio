@@ -1,4 +1,4 @@
-import { Cpu, Smartphone, Calendar, Globe, ChevronRight } from "lucide-react";
+import { Cpu, Smartphone, Calendar, Globe, ChevronRight, ExternalLink } from "lucide-react";
 
 const projects = [
   {
@@ -58,6 +58,7 @@ const projects = [
     subtitle: "Full-Stack Development Project",
     tags: ["React", "Tailwind CSS", "Laravel API"],
     description: "A responsive web-based CRUD application demonstrating modern frontend development practices combined with a robust backend API. The project showcases clean architecture principles and efficient data management.",
+    liveUrl: "https://react-crud-frontend-gold.vercel.app/",
     features: [
       "Responsive design with Tailwind CSS",
       "Sanctum authentication and authorization",
@@ -96,6 +97,26 @@ export default function ProjectsPage() {
                     <p className={`font-document text-sm ${idx === 0 ? 'text-[var(--word-blue)]' : 'text-[var(--word-text-secondary)]'} ${idx === 0 ? 'font-medium' : ''}`}>
                       {project.subtitle}
                     </p>
+                  </div>
+                  
+                  {/* Live View Button - Top Right */}
+                  <div className="flex-shrink-0">
+                    {project.liveUrl ? (
+                      <a 
+                        href={project.liveUrl} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-[var(--word-blue)] text-[var(--word-blue)] hover:bg-[var(--word-blue-light)] transition-all text-xs font-medium"
+                      >
+                        <ExternalLink className="w-3.5 h-3.5" />
+                        Live View
+                      </a>
+                    ) : (
+                      <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-gray-300 text-gray-400 bg-gray-50 text-xs font-medium cursor-not-allowed opacity-60">
+                        <ExternalLink className="w-3.5 h-3.5" />
+                        Live View
+                      </div>
+                    )}
                   </div>
                 </div>
 
