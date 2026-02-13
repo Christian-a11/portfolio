@@ -52,7 +52,7 @@ function App() {
       const sections = document.querySelectorAll('[data-document-content]');
       let total = 0;
       sections.forEach(section => {
-        const text = (section as HTMLElement).innerText;
+        const text = (section as HTMLElement).textContent || "";
         const words = text.trim().split(/\s+/).filter(word => word.length > 0);
         total += words.length;
       });
