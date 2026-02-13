@@ -49,7 +49,7 @@ export default function SkillsPage() {
           <div className="mb-8">
             <div className="flex items-center gap-2 mb-4">
               <Terminal className="w-5 h-5 text-[var(--word-blue)]" />
-              <h2 className="font-document text-base font-bold text-[var(--word-text)] uppercase tracking-wide">Programming Languages</h2>
+              <h2 className="section-heading flex-1">Programming Languages</h2>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {programmingLanguages.map((skill) => (
@@ -70,7 +70,7 @@ export default function SkillsPage() {
           <div className="mb-8">
             <div className="flex items-center gap-2 mb-4">
               <Monitor className="w-5 h-5 text-[var(--word-blue)]" />
-              <h2 className="font-document text-base font-bold text-[var(--word-text)] uppercase tracking-wide">Frontend Development</h2>
+              <h2 className="section-heading flex-1">Frontend Development</h2>
             </div>
             <div className="grid md:grid-cols-3 gap-4">
               <div className="bg-[var(--word-bg)] p-4 rounded">
@@ -113,7 +113,7 @@ export default function SkillsPage() {
           <div className="mb-8">
             <div className="flex items-center gap-2 mb-4">
               <Server className="w-5 h-5 text-[var(--word-blue)]" />
-              <h2 className="font-document text-base font-bold text-[var(--word-text)] uppercase tracking-wide">Backend & Database</h2>
+              <h2 className="section-heading flex-1">Backend & Database</h2>
             </div>
             <div className="grid md:grid-cols-2 gap-4">
               <div className="bg-[var(--word-bg)] p-4 rounded">
@@ -163,7 +163,7 @@ export default function SkillsPage() {
           <div className="mb-6">
             <div className="flex items-center gap-2 mb-4">
               <Settings className="w-5 h-5 text-[var(--word-blue)]" />
-              <h2 className="font-document text-base font-bold text-[var(--word-text)] uppercase tracking-wide">Tools & Workflow</h2>
+              <h2 className="section-heading flex-1">Tools & Workflow</h2>
             </div>
             <div className="flex flex-wrap gap-3">
               {tools.map((tool) => (
@@ -179,7 +179,7 @@ export default function SkillsPage() {
           <div>
             <div className="flex items-center gap-2 mb-4">
               <User className="w-5 h-5 text-[var(--word-blue)]" />
-              <h2 className="font-document text-base font-bold text-[var(--word-text)] uppercase tracking-wide">Professional Skills</h2>
+              <h2 className="section-heading flex-1">Professional Skills</h2>
             </div>
             <div className="grid md:grid-cols-2 gap-3">
               {professionalSkills.map((skill) => (

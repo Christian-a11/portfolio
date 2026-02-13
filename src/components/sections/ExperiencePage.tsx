@@ -62,8 +62,8 @@ export default function ExperiencePage() {
             <div className="bg-[var(--word-bg)] p-5 rounded-lg border-l-4 border-[var(--word-blue)]">
               <div className="flex flex-wrap items-start justify-between gap-4 mb-4">
                 <div>
-                  <h2 className="font-document text-xl font-bold text-[var(--word-text)]">Intern</h2>
-                  <p className="font-document text-base text-[var(--word-blue)] font-medium">
+                  <h2 className="font-document text-lg font-bold text-[var(--word-text)]">Intern</h2>
+                  <p className="font-document text-[15px] text-[var(--word-blue)] font-medium">
                     Department of Information and Communications Technology (DICT)
                   </p>
                   <p className="font-document text-sm text-[var(--word-text-secondary)]">Cavite Field Office</p>
@@ -119,8 +119,8 @@ export default function ExperiencePage() {
             <div className="bg-[var(--word-bg)] p-5 rounded-lg border-l-4 border-purple-500">
               <div className="flex flex-wrap items-start justify-between gap-4 mb-4">
                 <div>
-                  <h2 className="font-document text-xl font-bold text-[var(--word-text)]">Academic Project Lead</h2>
-                  <p className="font-document text-base text-purple-600 font-medium">City College of Tagaytay</p>
+                  <h2 className="font-document text-lg font-bold text-[var(--word-text)]">Academic Project Lead</h2>
+                  <p className="font-document text-[15px] text-purple-600 font-medium">City College of Tagaytay</p>
                 </div>
                 <div className="text-right">
                   <div className="flex items-center gap-2 text-[var(--word-text-secondary)]">

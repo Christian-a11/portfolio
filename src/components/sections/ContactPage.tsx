@@ -84,7 +84,7 @@ export default function ContactPage() {
             <div>
               <div className="flex items-center gap-2 mb-4">
                 <MessageSquare className="w-5 h-5 text-[var(--word-blue)]" />
-                <h2 className="font-document text-base font-bold text-[var(--word-text)] uppercase tracking-wide">Send a Message</h2>
+                <h2 className="section-heading flex-1">Send a Message</h2>
               </div>
 
               <form onSubmit={handleSendMessage} className="space-y-4">
@@ -148,7 +148,7 @@ export default function ContactPage() {
             <div>
               <div className="flex items-center gap-2 mb-4">
                 <User className="w-5 h-5 text-[var(--word-blue)]" />
-                <h2 className="font-document text-base font-bold text-[var(--word-text)] uppercase tracking-wide">Direct Contact</h2>
+                <h2 className="section-heading flex-1">Direct Contact</h2>
               </div>
 
               <div className="space-y-4">
@@ -212,7 +212,7 @@ export default function ContactPage() {
 
           {/* What I Can Help With */}
           <div className="mt-8 pt-6 border-t border-[var(--word-border)]">
-            <h2 className="font-document text-base font-bold text-[var(--word-text)] uppercase tracking-wide mb-4 text-center">
+              <h2 className="section-heading text-center mb-4">
               How I Can Help
             </h2>
             <div className="grid md:grid-cols-2 gap-4">

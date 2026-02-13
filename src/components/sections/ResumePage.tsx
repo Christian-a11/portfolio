@@ -35,7 +35,7 @@ export default function ResumePage({ isLoaded }: ResumePageProps) {
 
           {/* Professional Profile */}
           <div className={`mb-6 transition-all duration-600 delay-300 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
-            <h2 className="section-heading text-center mb-3">Professional Profile</h2>
+            <h2 className="section-heading mb-3">Professional Profile</h2>
             <p className="font-document text-[15px] leading-relaxed text-[var(--word-text)] text-justify">
               Computer Science graduate with solid academic and practical experience in software development, web technologies, and
               mobile application development. Demonstrated ability to design, develop, and maintain full-stack applications using
@@ -47,11 +47,11 @@ export default function ResumePage({ isLoaded }: ResumePageProps) {
 
           {/* Education */}
           <div className={`mb-6 transition-all duration-600 delay-400 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
-            <h2 className="section-heading text-center mb-3">Education</h2>
+            <h2 className="section-heading mb-3">Education</h2>
             <div className="mb-4">
               <div className="flex justify-between items-start">
                 <div>
-                  <h3 className="font-document text-base font-bold text-[var(--word-text)]">Bachelor of Science in Computer Science</h3>
+                  <h3 className="font-document text-sm font-bold text-[var(--word-text)]">Bachelor of Science in Computer Science</h3>
                   <p className="font-document text-sm text-[var(--word-text)]">City College of Tagaytay, Philippines</p>
                 </div>
                 <span className="font-document text-sm text-[var(--word-text-secondary)] whitespace-nowrap">2021 – 2025</span>
@@ -70,7 +70,7 @@ export default function ResumePage({ isLoaded }: ResumePageProps) {
             <div>
               <div className="flex justify-between items-start">
                 <div>
-                  <h3 className="font-document text-base font-bold text-[var(--word-text)]">Science, Technology, Engineering, and Mathematics (STEM)</h3>
+                  <h3 className="font-document text-sm font-bold text-[var(--word-text)]">Science, Technology, Engineering, and Mathematics (STEM)</h3>
                   <p className="font-document text-sm text-[var(--word-text)]">Olivarez College Tagaytay, Philippines</p>
                 </div>
                 <span className="font-document text-sm text-[var(--word-text-secondary)] whitespace-nowrap">2019 – 2021</span>
@@ -83,7 +83,7 @@ export default function ResumePage({ isLoaded }: ResumePageProps) {
 
           {/* Technical Skills */}
           <div className={`mb-6 transition-all duration-600 delay-500 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
-            <h2 className="section-heading text-center mb-3">Technical Skills</h2>
+            <h2 className="section-heading mb-3">Technical Skills</h2>
             <div className="grid md:grid-cols-2 gap-x-8 gap-y-3">
               <div>
                 <p className="font-document text-sm font-bold text-[var(--word-text)] mb-1">Programming Languages:</p>
@@ -106,11 +106,11 @@ export default function ResumePage({ isLoaded }: ResumePageProps) {
 
           {/* Work Experience */}
           <div className={`mb-6 transition-all duration-600 delay-600 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
-            <h2 className="section-heading text-center mb-3">Work Experience</h2>
+            <h2 className="section-heading mb-3">Work Experience</h2>
             <div>
               <div className="flex justify-between items-start">
                 <div>
-                  <h3 className="font-document text-base font-bold text-[var(--word-text)]">Intern — Department of Information and Communications Technology (DICT)</h3>
+                  <h3 className="font-document text-sm font-bold text-[var(--word-text)]">Intern — Department of Information and Communications Technology (DICT)</h3>
                   <p className="font-document text-sm text-[var(--word-text)]">Cavite Field Office</p>
                 </div>
                 <span className="font-document text-sm text-[var(--word-text-secondary)] whitespace-nowrap">July 2024 – September 2024</span>
@@ -134,7 +134,7 @@ export default function ResumePage({ isLoaded }: ResumePageProps) {
 
           {/* Academic & Personal Projects */}
           <div className={`mb-6 transition-all duration-600 delay-700 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
-            <h2 className="section-heading text-center mb-3">Academic & Personal Projects</h2>
+            <h2 className="section-heading mb-3">Academic & Personal Projects</h2>
             <div className="space-y-3">
               {[
                 { title: "Intelligent Multi-Language Code Translator (Thesis Project)", tech: "Flutter, Gemini API, Image Recognition, Natural Language Processing", desc: "Created an AI-powered application capable of translating flowcharts and pseudocode into C, C++, C#, Java, and Python using advanced image recognition and natural language processing techniques." },
@@ -153,7 +153,7 @@ export default function ResumePage({ isLoaded }: ResumePageProps) {
 
           {/* Achievements */}
           <div className={`transition-all duration-600 delay-800 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
-            <h2 className="section-heading text-center mb-3">Achievements</h2>
+            <h2 className="section-heading mb-3">Achievements</h2>
             <ul className="space-y-2">
               <li className="flex items-start gap-2">
                 <Award className="w-4 h-4 text-[var(--word-green)] mt-0.5 flex-shrink-0" />

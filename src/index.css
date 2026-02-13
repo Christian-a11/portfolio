@@ -110,9 +110,11 @@
 
 /* Section heading style (Harvard resume) */
 .section-heading {
-  @apply text-xs font-bold uppercase tracking-wider text-[var(--word-text)];
+  @apply text-[14px] font-bold uppercase tracking-widest text-[var(--word-text)];
   font-family: 'Georgia', serif;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.12em;
+  border-bottom: 1.5px solid var(--word-text);
+  padding-bottom: 4px;
 }
 
 /* Horizontal rule for resume */

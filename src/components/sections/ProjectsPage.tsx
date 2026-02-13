@@ -93,7 +93,7 @@ export default function ProjectsPage() {
                     <Icon className="w-6 h-6 text-white" />
                   </div>
                   <div className="flex-1">
-                    <h2 className="font-document text-lg font-bold text-[var(--word-text)]">{project.title}</h2>
+                    <h2 className="font-document text-[15px] font-bold text-[var(--word-text)]">{project.title}</h2>
                     <p className={`font-document text-sm ${idx === 0 ? 'text-[var(--word-blue)]' : 'text-[var(--word-text-secondary)]'} ${idx === 0 ? 'font-medium' : ''}`}>
                       {project.subtitle}
                     </p>
