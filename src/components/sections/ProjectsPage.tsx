@@ -10,6 +10,7 @@ const projects = [
     title: "Intelligent Multi-Language Code Translator",
     subtitle: "Thesis Project | Best in Thesis Awardee",
     tags: ["Flutter", "Gemini API", "Image Recognition", "NLP"],
+    liveUrl: "https://thesis-lilac-three.vercel.app",
     description: "An AI-powered application that revolutionizes code learning by translating visual flowcharts and written pseudocode into executable code across multiple programming languages. The system leverages Google's Gemini API for natural language processing and implements advanced image recognition algorithms to interpret flowchart diagrams.",
     features: [
       "Multi-language code generation (C, C++, C#, Java, Python)",
