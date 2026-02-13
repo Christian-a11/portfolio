@@ -41,7 +41,7 @@ const projects = [
     badgeColor: "bg-purple-100 text-purple-700",
     iconColor: "text-purple-600",
     title: "Event Scheduler and Project Tracker",
-    subtitle: "Full-Stack Web Application",
+    subtitle: "Mobile Application",
     tags: ["Flutter", "PHP", "MySQL", "REST API"],
     description: "A robust system designed for organizations to efficiently schedule events and monitor project progress. The application combines a Flutter frontend with a Laravel backend, providing a seamless experience across platforms with structured data management.",
     features: [
