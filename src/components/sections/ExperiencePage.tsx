@@ -55,7 +55,7 @@ export default function ExperiencePage({ isLoaded }: ExperiencePageProps) {
 
   return (
     <section id="experience" className="flex-shrink-0 w-full flex items-start justify-center py-8">
-      <div className={`w-full max-w-[850px] min-h-[1100px] bg-white paper-shadow rounded-sm transition-all duration-700 delay-300 ${
+      <div className={`w-full max-w-[850px] bg-white paper-shadow rounded-sm transition-all duration-700 delay-300 ${
         isLoaded ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-6 scale-[0.985]"
       }`}>
         <div className="p-6 md:p-14">

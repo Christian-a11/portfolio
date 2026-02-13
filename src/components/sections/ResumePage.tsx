@@ -8,7 +8,7 @@ interface ResumePageProps {
 export default function ResumePage({ isLoaded }: ResumePageProps) {
   return (
     <section id="home" className="flex-shrink-0 w-full flex items-start justify-center py-8">
-      <div className={`w-full max-w-[850px] min-h-[1100px] bg-white paper-shadow rounded-sm transition-all duration-700 ${
+      <div className={`w-full max-w-[850px] bg-white paper-shadow rounded-sm transition-all duration-700 ${
         isLoaded ? "opacity-100 translate-y-0 scale-100" : "opacity-0 -translate-y-6 scale-[0.985]"
       }`}>
         <div className="p-6 md:p-14">
