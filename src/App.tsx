@@ -52,7 +52,7 @@ function App() {
       const sections = document.querySelectorAll('[data-document-content]');
       let total = 0;
       sections.forEach(section => {
-        const text = (section as HTMLElement).textContent || "";
+        const text = (section as HTMLElement).innerText;
         const words = text.trim().split(/\s+/).filter(word => word.length > 0);
         total += words.length;
       });
@@ -65,6 +65,8 @@ function App() {
     // Observe changes in the document container
     const observer = new MutationObserver(() => {
       calculateWordCount();
+      // Add delay to allow CSS transitions (expand/collapse) to complete
+      setTimeout(calculateWordCount, 350);
     });
 
     const container = scrollContainerRef.current;
