@@ -1,4 +1,4 @@
-import { Undo2, Redo2, FileText, Code, Database, Briefcase, Mail, ChevronLeft, ChevronRight } from "lucide-react";
+import { FileText, Code, Database, Briefcase, Mail, ChevronLeft, ChevronRight } from "lucide-react";
 
 type Section = "home" | "projects" | "skills" | "experience" | "contact";
 
@@ -33,6 +33,7 @@ export default function Toolbar({ activeTab, scrollToSection, onNext, onPrevious
             <span className="text-[10px] text-[var(--word-text-secondary)] mt-0.5">Next</span>
           </button>
         </div>
+
         {/* Section Quick Access Group */}
         <div className="flex items-center gap-1 px-3 min-w-max">
           {(Object.keys(toolIcons) as Section[]).map((section) => {
