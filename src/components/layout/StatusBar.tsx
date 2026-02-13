@@ -81,7 +81,7 @@ export default function StatusBar({ currentPage, totalPages, wordCount, zoom, on
             ></div>
             <div 
                className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-0.5 h-2.5 bg-white/50 pointer-events-none" 
-               style={{ left: '50%' }}
+               style={{ left: '33.33%' }}
             />
              <div 
                 className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-3.5 h-3.5 bg-white rounded-full shadow-md hover:scale-110 transition-transform pointer-events-none"
