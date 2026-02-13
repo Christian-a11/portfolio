@@ -181,10 +181,10 @@ function App() {
               style={{ transform: `scale(${zoom / 100})` }}
             >
               <ResumePage isLoaded={isLoaded} />
-              <ProjectsPage />
-              <SkillsPage />
-              <ExperiencePage />
-              <ContactPage />
+              <ProjectsPage isLoaded={isLoaded} />
+              <SkillsPage isLoaded={isLoaded} />
+              <ExperiencePage isLoaded={isLoaded} />
+              <ContactPage isLoaded={isLoaded} />
             </div>
           </div>
 

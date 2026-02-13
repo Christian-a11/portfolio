@@ -15,7 +15,11 @@ const services = [
   },
 ];
 
-export default function ContactPage() {
+interface ContactPageProps {
+  isLoaded: boolean;
+}
+
+export default function ContactPage({ isLoaded }: ContactPageProps) {
   const [copied, setCopied] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -54,7 +58,9 @@ export default function ContactPage() {
 
   return (
     <section id="contact" className="flex-shrink-0 w-full flex items-start justify-center py-8">
-      <div className="w-full max-w-[850px] min-h-[1100px] bg-white paper-shadow rounded-sm">
+      <div className={`w-full max-w-[850px] min-h-[1100px] bg-white paper-shadow rounded-sm transition-all duration-700 delay-[400ms] ${
+        isLoaded ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-6 scale-[0.985]"
+      }`}>
         <div className="p-6 md:p-14">
           {/* Page Header */}
           <div className="flex items-center justify-between mb-6 pb-4 border-b-2 border-[var(--word-text)]">

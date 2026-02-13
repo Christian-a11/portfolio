@@ -87,15 +87,21 @@ export default function ResumePage({ isLoaded }: ResumePageProps) {
             <div className="grid md:grid-cols-2 gap-x-8 gap-y-3">
               <div>
                 <p className="font-document text-sm font-bold text-[var(--word-text)] mb-1">Programming Languages:</p>
-                <p className="font-document text-sm text-[var(--word-text-secondary)]">Python, Java, C, C++, C#, Dart, PHP, JavaScript</p>
+                <p className="font-document text-sm text-[var(--word-text-secondary)]">
+                  <span className="highlighter-effect">Python</span>, <span className="highlighter-effect">Java</span>, <span className="highlighter-effect">C</span>, <span className="highlighter-effect">C++</span>, <span className="highlighter-effect">C#</span>, <span className="highlighter-effect">Dart</span>, <span className="highlighter-effect">PHP</span>, <span className="highlighter-effect">JavaScript</span>
+                </p>
               </div>
               <div>
                 <p className="font-document text-sm font-bold text-[var(--word-text)] mb-1">Front-End Technologies:</p>
-                <p className="font-document text-sm text-[var(--word-text-secondary)]">HTML5, CSS3, JavaScript (ES6+), React, Tailwind CSS, Flutter</p>
+                <p className="font-document text-sm text-[var(--word-text-secondary)]">
+                  <span className="highlighter-effect highlighter-blue">HTML5</span>, <span className="highlighter-effect highlighter-blue">CSS3</span>, <span className="highlighter-effect highlighter-blue">JavaScript (ES6+)</span>, <span className="highlighter-effect highlighter-blue">React</span>, <span className="highlighter-effect highlighter-blue">Tailwind CSS</span>, <span className="highlighter-effect highlighter-blue">Flutter</span>
+                </p>
               </div>
               <div>
                 <p className="font-document text-sm font-bold text-[var(--word-text)] mb-1">Back-End & Databases:</p>
-                <p className="font-document text-sm text-[var(--word-text-secondary)]">PHP (Laravel Framework), MySQL, Firebase, RESTful API Development</p>
+                <p className="font-document text-sm text-[var(--word-text-secondary)]">
+                  <span className="highlighter-effect">PHP (Laravel Framework)</span>, <span className="highlighter-effect">MySQL</span>, <span className="highlighter-effect">Firebase</span>, <span className="highlighter-effect">RESTful API Development</span>
+                </p>
               </div>
               <div>
                 <p className="font-document text-sm font-bold text-[var(--word-text)] mb-1">Other Skills:</p>

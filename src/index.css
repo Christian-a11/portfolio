@@ -132,6 +132,50 @@
   background-color: var(--word-blue-light);
 }
 
+/* Highlighter effect */
+.highlighter-effect {
+  @apply relative inline-block transition-all duration-300;
+}
+
+.highlighter-effect::before {
+  content: '';
+  @apply absolute bottom-0 left-0 w-0 h-[60%] bg-yellow-200/60 -z-10 transition-all duration-300 opacity-0;
+  transform: skewX(-15deg);
+}
+
+.highlighter-effect:hover::before {
+  @apply w-full opacity-100;
+}
+
+.highlighter-blue::before {
+  @apply bg-[var(--word-blue-light)] opacity-40;
+}
+
+/* Paper lift effect */
+.paper-lift {
+  @apply transition-all duration-300;
+}
+
+.paper-lift:hover {
+  @apply -translate-y-1;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* Expandable content */
+.expandable-content {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s ease-out;
+}
+
+.expandable-content.expanded {
+  grid-template-rows: 1fr;
+}
+
+.expand-inner {
+  overflow: hidden;
+}
+
 /* Form input focus */
 .word-input {
   @apply w-full px-3 py-2 border border-[var(--word-border)] rounded bg-white transition-all;

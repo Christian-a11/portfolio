@@ -29,10 +29,16 @@ const professionalSkills = [
   "Adaptability",
 ];
 
-export default function SkillsPage() {
+interface SkillsPageProps {
+  isLoaded: boolean;
+}
+
+export default function SkillsPage({ isLoaded }: SkillsPageProps) {
   return (
     <section id="skills" className="flex-shrink-0 w-full flex items-start justify-center py-8">
-      <div className="w-full max-w-[850px] min-h-[1100px] bg-white paper-shadow rounded-sm">
+      <div className={`w-full max-w-[850px] min-h-[1100px] bg-white paper-shadow rounded-sm transition-all duration-700 delay-200 ${
+        isLoaded ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-6 scale-[0.985]"
+      }`}>
         <div className="p-6 md:p-14">
           {/* Page Header */}
           <div className="flex items-center justify-between mb-6 pb-4 border-b-2 border-[var(--word-text)]">
@@ -53,10 +59,10 @@ export default function SkillsPage() {
             </div>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {programmingLanguages.map((skill) => (
-                <div key={skill.name} className="bg-[var(--word-bg)] p-3 rounded border border-[var(--word-border)]">
+                <div key={skill.name} className="bg-[var(--word-bg)] p-3 rounded border border-[var(--word-border)] paper-lift hover:border-[var(--word-blue)] group">
                   <div className="flex items-center gap-2 mb-1">
                     <span className="text-lg">{skill.icon}</span>
-                    <span className="font-document text-sm font-bold text-[var(--word-text)]">{skill.name}</span>
+                    <span className="font-document text-sm font-bold text-[var(--word-text)] group-hover:text-[var(--word-blue)] transition-colors">{skill.name}</span>
                   </div>
                   <span className={`font-document text-xs ${skill.level === "Advanced" ? "text-[var(--word-green)]" : "text-[var(--word-text-secondary)]"}`}>
                     {skill.level}
@@ -130,7 +136,7 @@ export default function SkillsPage() {
                         <span className="font-document text-xs text-[var(--word-text-secondary)]">{tech.level}</span>
                       </div>
                       <div className="w-full h-2 bg-[var(--word-border)] rounded-full overflow-hidden">
-                        <div className={`h-full ${tech.width} bg-[var(--word-blue)] rounded-full`} />
+                        <div className={`h-full ${tech.width} bg-[var(--word-blue)] rounded-full transition-all duration-1000 ease-out`} />
                       </div>
                     </div>
                   ))}
@@ -150,7 +156,7 @@ export default function SkillsPage() {
                         <span className="font-document text-xs text-[var(--word-text-secondary)]">{tech.level}</span>
                       </div>
                       <div className="w-full h-2 bg-[var(--word-border)] rounded-full overflow-hidden">
-                        <div className={`h-full ${tech.width} bg-[var(--word-green)] rounded-full`} />
+                        <div className={`h-full ${tech.width} bg-[var(--word-green)] rounded-full transition-all duration-1000 ease-out`} />
                       </div>
                     </div>
                   ))}
@@ -167,7 +173,7 @@ export default function SkillsPage() {
             </div>
             <div className="flex flex-wrap gap-3">
               {tools.map((tool) => (
-                <div key={tool.name} className="flex items-center gap-2 px-3 py-2 bg-[var(--word-bg)] rounded border border-[var(--word-border)]">
+                <div key={tool.name} className="flex items-center gap-2 px-3 py-2 bg-[var(--word-bg)] rounded border border-[var(--word-border)] paper-lift highlighter-effect highlighter-blue cursor-default">
                   <span className="text-[var(--word-blue)]">{tool.icon}</span>
                   <span className="font-document text-sm text-[var(--word-text)]">{tool.name}</span>
                 </div>

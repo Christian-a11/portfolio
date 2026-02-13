@@ -1,4 +1,5 @@
-import { Cpu, Smartphone, Calendar, Globe, ChevronRight, ExternalLink } from "lucide-react";
+import { useState } from "react";
+import { Cpu, Smartphone, Calendar, Globe, ChevronRight, ExternalLink, ChevronDown, ChevronUp } from "lucide-react";
 
 const projects = [
   {
@@ -67,10 +68,22 @@ const projects = [
   }
 ];
 
-export default function ProjectsPage() {
+interface ProjectsPageProps {
+  isLoaded: boolean;
+}
+
+export default function ProjectsPage({ isLoaded }: ProjectsPageProps) {
+  const [expandedId, setExpandedId] = useState<number | null>(null);
+
+  const toggleExpand = (id: number) => {
+    setExpandedId(expandedId === id ? null : id);
+  };
+
   return (
     <section id="projects" className="flex-shrink-0 w-full flex items-start justify-center py-8">
-      <div className="w-full max-w-[850px] bg-white paper-shadow rounded-sm">
+      <div className={`w-full max-w-[850px] bg-white paper-shadow rounded-sm transition-all duration-700 delay-100 ${
+        isLoaded ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-6 scale-[0.985]"
+      }`}>
         <div className="p-6 md:p-14">
           {/* Page Header */}
           <div className="flex items-center justify-between mb-6 pb-4 border-b-2 border-[var(--word-text)]">
@@ -86,8 +99,15 @@ export default function ProjectsPage() {
           {/* Projects */}
           {projects.map((project, idx) => {
             const Icon = project.icon;
+            const isExpanded = expandedId === idx;
+            
             return (
-              <div key={idx} className={`border border-[var(--word-border)] rounded-lg p-4 relative ${idx < projects.length - 1 ? 'mb-8' : ''}`}>
+              <div 
+                key={idx} 
+                className={`border border-[var(--word-border)] rounded-lg p-4 relative paper-lift bg-white transition-all duration-300 ${
+                  idx < projects.length - 1 ? 'mb-8' : ''
+                } ${isExpanded ? 'ring-1 ring-[var(--word-blue)] shadow-md' : ''}`}
+              >
                 <div className="flex items-start gap-3 mb-3">
                   <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${project.color} flex items-center justify-center flex-shrink-0`}>
                     <Icon className="w-6 h-6 text-white" />
@@ -99,24 +119,36 @@ export default function ProjectsPage() {
                     </p>
                   </div>
                   
-                  {/* Live View Button - Top Right */}
-                  <div className="flex-shrink-0">
+                  {/* Actions Area */}
+                  <div className="flex flex-col gap-2">
                     {project.liveUrl ? (
                       <a 
                         href={project.liveUrl} 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-[var(--word-blue)] text-[var(--word-blue)] hover:bg-[var(--word-blue-light)] transition-all text-xs font-medium"
+                        className="flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-md border border-[var(--word-blue)] text-[var(--word-blue)] hover:bg-[var(--word-blue-light)] transition-all text-xs font-medium"
                       >
                         <ExternalLink className="w-3.5 h-3.5" />
                         Live View
                       </a>
                     ) : (
-                      <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-gray-300 text-gray-400 bg-gray-50 text-xs font-medium cursor-not-allowed opacity-60">
+                      <div className="flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-md border border-gray-300 text-gray-400 bg-gray-50 text-xs font-medium cursor-not-allowed opacity-60">
                         <ExternalLink className="w-3.5 h-3.5" />
                         Live View
                       </div>
                     )}
+                    
+                    <button 
+                      onClick={() => toggleExpand(idx)}
+                      className={`flex items-center justify-center gap-1 px-3 py-1.5 rounded-md text-xs font-medium transition-all ${
+                        isExpanded 
+                        ? 'bg-[var(--word-blue)] text-white' 
+                        : 'text-[var(--word-text-secondary)] hover:bg-gray-100 border border-transparent'
+                      }`}
+                    >
+                      {isExpanded ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
+                      {isExpanded ? 'Less' : 'Details'}
+                    </button>
                   </div>
                 </div>
 
@@ -129,16 +161,20 @@ export default function ProjectsPage() {
 
                   <p className="font-document text-sm text-[var(--word-text)] leading-relaxed mb-3">{project.description}</p>
 
-                  <div className="bg-[var(--word-bg)] p-3 rounded">
-                    <p className="font-document text-xs font-bold text-[var(--word-text)] mb-2">Key Features:</p>
-                    <ul className="space-y-1">
-                      {project.features.map((feature, featureIdx) => (
-                        <li key={featureIdx} className="font-document text-sm text-[var(--word-text-secondary)] flex items-start gap-2">
-                          <ChevronRight className={`w-3 h-3 ${project.iconColor} mt-0.5 flex-shrink-0`} />
-                          {feature}
-                        </li>
-                      ))}
-                    </ul>
+                  <div className={`expandable-content mt-3 ${isExpanded ? 'expanded' : ''}`}>
+                    <div className="expand-inner">
+                      <div className="bg-[var(--word-bg)] p-3 rounded mt-2">
+                        <p className="font-document text-xs font-bold text-[var(--word-text)] mb-2 uppercase tracking-wider">Key Features:</p>
+                        <ul className="space-y-1.5">
+                          {project.features.map((feature, featureIdx) => (
+                            <li key={featureIdx} className="font-document text-sm text-[var(--word-text-secondary)] flex items-start gap-2 group">
+                              <ChevronRight className={`w-3 h-3 ${project.iconColor} mt-1 flex-shrink-0 transition-transform group-hover:translate-x-1`} />
+                              <span className="group-hover:text-[var(--word-text)] transition-colors">{feature}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
