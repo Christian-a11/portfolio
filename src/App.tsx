@@ -31,6 +31,7 @@ function App() {
   const [isMaximized, setIsMaximized] = useState(true);
   const [isMinimized, setIsMinimized] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [wordCount, setWordCount] = useState(0);
   const lastHighlightedRef = useRef<{ element: HTMLElement; originalBg: string } | null>(null);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
@@ -45,6 +46,40 @@ function App() {
     const timer = setTimeout(() => setIsLoaded(true), 100);
     return () => clearTimeout(timer);
   }, []);
+
+  useEffect(() => {
+    const calculateWordCount = () => {
+      const sections = document.querySelectorAll('[data-document-content]');
+      let total = 0;
+      sections.forEach(section => {
+        const text = (section as HTMLElement).innerText;
+        const words = text.trim().split(/\s+/).filter(word => word.length > 0);
+        total += words.length;
+      });
+      setWordCount(total);
+    };
+
+    // Initial calculation
+    calculateWordCount();
+
+    // Observe changes in the document container
+    const observer = new MutationObserver(() => {
+      calculateWordCount();
+    });
+
+    const container = scrollContainerRef.current;
+    if (container) {
+      observer.observe(container, {
+        childList: true,
+        subtree: true,
+        characterData: true,
+        attributes: true,
+        attributeFilter: ['class', 'style']
+      });
+    }
+
+    return () => observer.disconnect();
+  }, [isAppOpen, isLoaded]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -195,7 +230,7 @@ function App() {
           <StatusBar
             currentPage={sections.indexOf(activeTab) + 1}
             totalPages={sections.length}
-            wordCount={portfolioContent.split(/\s+/).length}
+            wordCount={wordCount}
             zoom={zoom}
             onZoomChange={setZoom}
           />

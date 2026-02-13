@@ -11,7 +11,7 @@ export default function ResumePage({ isLoaded }: ResumePageProps) {
       <div className={`w-full max-w-[850px] bg-white paper-shadow rounded-sm transition-all duration-700 ${
         isLoaded ? "opacity-100 translate-y-0 scale-100" : "opacity-0 -translate-y-6 scale-[0.985]"
       }`}>
-        <div className="p-6 md:p-14">
+        <div className="p-6 md:p-14" data-document-content>
           {/* Header */}
           <div className={`transition-all duration-600 delay-100 ${isLoaded ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-4"}`}>
             <h1 className="font-document text-3xl md:text-4xl font-bold text-[var(--word-text)] text-center tracking-wide">
