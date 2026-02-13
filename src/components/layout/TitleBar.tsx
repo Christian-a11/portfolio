@@ -1,4 +1,4 @@
-import { Save, User } from "lucide-react";
+import { User } from "lucide-react";
 
 interface TitleBarProps {
   onMinimize: () => void;
@@ -28,18 +28,10 @@ export default function TitleBar({
           </div>
 
           <div className="flex items-center gap-2 ml-2">
-            <div className="hidden md:flex items-center gap-2">
-              <span className="text-xs text-white/80 hover:bg-white/10 px-2 py-0.5 rounded transition-colors cursor-pointer">
-                AutoSave <span className="font-bold">On</span>
-              </span>
-              <div className="w-px h-3 bg-white/20 mx-1"></div>
-              <Save className="w-4 h-4 text-white hover:bg-white/10 rounded cursor-pointer p-0.5 box-content" />
-              <div className="w-px h-3 bg-white/20 mx-1"></div>
-            </div>
             <span className="text-sm font-medium text-white truncate max-w-[150px] md:max-w-[200px]">
               Christian Parra — Portfolio
             </span>
-            <span className="hidden md:inline text-xs text-white/70 bg-white/10 px-1.5 rounded ml-1">Saved</span>
+            <span className="hidden md:inline text-xs text-white/70 bg-white/10 px-1.5 rounded ml-1">Document</span>
           </div>
         </div>
 

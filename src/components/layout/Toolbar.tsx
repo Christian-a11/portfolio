@@ -1,19 +1,15 @@
-import { Save, Undo2, Redo2, FileText, Layout, Code, Database, Briefcase, Mail } from "lucide-react";
+import { Undo2, Redo2, FileText, Code, Database, Briefcase, Mail, ChevronLeft, ChevronRight } from "lucide-react";
 
 type Section = "home" | "projects" | "skills" | "experience" | "contact";
 
-interface Tab {
-  id: Section;
-  label: string;
-}
-
 interface ToolbarProps {
-  tabs: Tab[];
   activeTab: Section;
   scrollToSection: (section: Section) => void;
+  onNext: () => void;
+  onPrevious: () => void;
 }
 
-export default function Toolbar({ tabs, activeTab, scrollToSection }: ToolbarProps) {
+export default function Toolbar({ activeTab, scrollToSection, onNext, onPrevious }: ToolbarProps) {
   const toolIcons = {
     home: FileText,
     projects: Code,
@@ -24,25 +20,23 @@ export default function Toolbar({ tabs, activeTab, scrollToSection }: ToolbarPro
 
   return (
     <div className="bg-white border-b border-[var(--word-border)] shadow-sm shrink-0">
-      {/* Tabs */}
-      <div className="flex items-center px-2 overflow-x-auto no-scrollbar bg-white pt-1">
-        {tabs.map((tab, index) => (
-          <button
-            key={`${tab.label}-${index}`}
-            onClick={() => scrollToSection(tab.id)}
-            className={`ribbon-tab ${activeTab === tab.id ? "active" : ""}`}
-          >
-            {tab.label}
-          </button>
-        ))}
-      </div>
-
       {/* Toolbar */}
-      <div className="flex items-center gap-1 px-3 py-2 h-16 overflow-x-auto no-scrollbar bg-[#f3f3f3] border-t border-[var(--word-border)]">
-        {/* Clipboard Group */}
+      <div className="flex items-center gap-1 px-3 py-2 h-16 overflow-x-auto no-scrollbar bg-[#f3f3f3]">
+        {/* Navigation Control Group */}
         <div className="flex items-center gap-1 pr-3 border-r border-[#d1d5db] min-w-max">
+          <button onClick={onPrevious} className="tool-button">
+            <ChevronLeft className="w-4 h-4 text-[var(--word-text-secondary)]" />
+            <span className="text-[10px] text-[var(--word-text-secondary)] mt-0.5">Previous</span>
+          </button>
+          <button onClick={onNext} className="tool-button">
+            <ChevronRight className="w-4 h-4 text-[var(--word-text-secondary)]" />
+            <span className="text-[10px] text-[var(--word-text-secondary)] mt-0.5">Next</span>
+          </button>
+        </div>
+
+        {/* Edit Group */}
+        <div className="flex items-center gap-1 px-3 border-r border-[#d1d5db] min-w-max">
           {[
-            { icon: Save, label: 'Save' },
             { icon: Undo2, label: 'Undo' },
             { icon: Redo2, label: 'Redo' }
           ].map(({ icon: Icon, label }) => (
@@ -53,8 +47,8 @@ export default function Toolbar({ tabs, activeTab, scrollToSection }: ToolbarPro
           ))}
         </div>
 
-        {/* Navigation Group */}
-        <div className="flex items-center gap-1 px-3 border-r border-[#d1d5db] min-w-max">
+        {/* Section Quick Access Group */}
+        <div className="flex items-center gap-1 px-3 min-w-max">
           {(Object.keys(toolIcons) as Section[]).map((section) => {
             const Icon = toolIcons[section];
             const label = section.charAt(0).toUpperCase() + section.slice(1);
@@ -75,14 +69,6 @@ export default function Toolbar({ tabs, activeTab, scrollToSection }: ToolbarPro
               </button>
             );
           })}
-        </div>
-
-        {/* View Group */}
-        <div className="flex items-center gap-1 pl-3 min-w-max">
-          <button className="tool-button">
-            <Layout className="w-4 h-4 text-[var(--word-text-secondary)]" />
-            <span className="text-[10px] text-[var(--word-text-secondary)] mt-0.5">Layout</span>
-          </button>
         </div>
       </div>
     </div>

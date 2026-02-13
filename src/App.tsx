@@ -20,19 +20,7 @@ import { portfolioContent } from "./data/portfolio";
 
 type Section = "home" | "projects" | "skills" | "experience" | "contact";
 
-interface Tab {
-  id: Section;
-  label: string;
-}
-
-const tabs: Tab[] = [
-  { id: "home", label: "File" },
-  { id: "home", label: "Home" },
-  { id: "projects", label: "Insert" },
-  { id: "skills", label: "Layout" },
-  { id: "experience", label: "Review" },
-  { id: "contact", label: "View" },
-];
+const sections: Section[] = ["home", "projects", "skills", "experience", "contact"];
 
 function App() {
   const [activeTab, setActiveTab] = useState<Section>("home");
@@ -89,6 +77,20 @@ function App() {
       const elementTop = element.offsetTop;
       container.scrollTo({ top: elementTop - 20, behavior: "smooth" });
     }
+  };
+
+  const sectionOrder = sections;
+
+  const goToNextSection = () => {
+    const currentIndex = sectionOrder.indexOf(activeTab);
+    const nextIndex = (currentIndex + 1) % sectionOrder.length;
+    scrollToSection(sectionOrder[nextIndex]);
+  };
+
+  const goToPreviousSection = () => {
+    const currentIndex = sectionOrder.indexOf(activeTab);
+    const prevIndex = (currentIndex - 1 + sectionOrder.length) % sectionOrder.length;
+    scrollToSection(sectionOrder[prevIndex]);
   };
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -166,7 +168,12 @@ function App() {
             onSearchKeyDown={executeSearch}
           />
 
-          <Toolbar tabs={tabs} activeTab={activeTab} scrollToSection={scrollToSection} />
+          <Toolbar 
+            activeTab={activeTab} 
+            scrollToSection={scrollToSection}
+            onNext={goToNextSection}
+            onPrevious={goToPreviousSection}
+          />
 
           <div ref={scrollContainerRef} className="flex-1 overflow-y-auto overflow-x-hidden flex flex-col items-center bg-[#E3E3E3] relative">
             <div
@@ -186,8 +193,8 @@ function App() {
           </div>
 
           <StatusBar
-            currentPage={tabs.findIndex((t) => t.id === activeTab) > 0 ? tabs.findIndex((t) => t.id === activeTab) : 1}
-            totalPages={5}
+            currentPage={sections.indexOf(activeTab) + 1}
+            totalPages={sections.length}
             wordCount={portfolioContent.split(/\s+/).length}
             zoom={zoom}
             onZoomChange={setZoom}
