@@ -33,20 +33,6 @@ export default function Toolbar({ activeTab, scrollToSection, onNext, onPrevious
             <span className="text-[10px] text-[var(--word-text-secondary)] mt-0.5">Next</span>
           </button>
         </div>
-
-        {/* Edit Group */}
-        <div className="flex items-center gap-1 px-3 border-r border-[#d1d5db] min-w-max">
-          {[
-            { icon: Undo2, label: 'Undo' },
-            { icon: Redo2, label: 'Redo' }
-          ].map(({ icon: Icon, label }) => (
-            <button key={label} className="tool-button">
-              <Icon className="w-4 h-4 text-[var(--word-text-secondary)]" />
-              <span className="text-[10px] text-[var(--word-text-secondary)] mt-0.5">{label}</span>
-            </button>
-          ))}
-        </div>
-
         {/* Section Quick Access Group */}
         <div className="flex items-center gap-1 px-3 min-w-max">
           {(Object.keys(toolIcons) as Section[]).map((section) => {
