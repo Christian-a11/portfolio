@@ -99,9 +99,6 @@ export default function ProfilePage({ isLoaded }: ProfilePageProps) {
           {/* Page Footer */}
           <div className="mt-16 pt-4 border-t border-gray-100 flex justify-between items-center">
             <p className="font-mono text-[10px] text-gray-400">CHRISTIAN PARRA // 2025 OFFICIAL BIOGRAPHY</p>
-            <div className="flex gap-2 text-[10px] text-[var(--word-blue)] font-bold uppercase tracking-tighter cursor-default underline-offset-4 hover:underline">
-              [ LEARN MORE ]
-            </div>
           </div>
         </div>
       </div>
