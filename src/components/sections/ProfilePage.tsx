@@ -85,11 +85,11 @@ export default function ProfilePage({ isLoaded }: ProfilePageProps) {
                 <div className="grid grid-cols-2 gap-4">
                   <div>
                     <h5 className="font-ui font-bold text-[10px] uppercase text-gray-400">Location</h5>
-                    <p className="font-document text-sm text-[var(--word-text)]">Cavite, PH</p>
+                    <p className="font-document text-sm text-[var(--word-text)]">Tagaytay, Cavite</p>
                   </div>
                   <div>
                     <h5 className="font-ui font-bold text-[10px] uppercase text-gray-400">Focus</h5>
-                    <p className="font-document text-sm text-[var(--word-text)]">React & Flutter</p>
+                    <p className="font-document text-sm text-[var(--word-text)]">Full-Stack Development & AI Integration</p>
                   </div>
                 </div>
               </div>
