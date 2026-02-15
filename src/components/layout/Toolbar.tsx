@@ -1,6 +1,6 @@
-import { FileText, Code, Database, Briefcase, Mail, ChevronLeft, ChevronRight } from "lucide-react";
+import { FileText, Code, Database, Briefcase, Mail, ChevronLeft, ChevronRight, User } from "lucide-react";
 
-type Section = "home" | "projects" | "skills" | "experience" | "contact";
+type Section = "profile" | "home" | "projects" | "skills" | "experience" | "contact";
 
 interface ToolbarProps {
   activeTab: Section;
@@ -11,6 +11,7 @@ interface ToolbarProps {
 
 export default function Toolbar({ activeTab, scrollToSection, onNext, onPrevious }: ToolbarProps) {
   const toolIcons = {
+    profile: User,
     home: FileText,
     projects: Code,
     skills: Database,

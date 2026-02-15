@@ -10,6 +10,7 @@ import Desktop from "./components/layout/Desktop";
 import TitleBar from "./components/layout/TitleBar";
 import Toolbar from "./components/layout/Toolbar";
 import ResumePage from "./components/sections/ResumePage";
+import ProfilePage from "./components/sections/ProfilePage";
 import ProjectsPage from "./components/sections/ProjectsPage";
 import SkillsPage from "./components/sections/SkillsPage";
 import ExperiencePage from "./components/sections/ExperiencePage";
@@ -18,12 +19,12 @@ import ContactPage from "./components/sections/ContactPage";
 // Data
 import { portfolioContent } from "./data/portfolio";
 
-type Section = "home" | "projects" | "skills" | "experience" | "contact";
+type Section = "profile" | "home" | "projects" | "skills" | "experience" | "contact";
 
-const sections: Section[] = ["home", "projects", "skills", "experience", "contact"];
+const sections: Section[] = ["profile", "home", "projects", "skills", "experience", "contact"];
 
 function App() {
-  const [activeTab, setActiveTab] = useState<Section>("home");
+  const [activeTab, setActiveTab] = useState<Section>("profile");
   const [zoom, setZoom] = useState(100);
   const [searchQuery, setSearchQuery] = useState("");
   const [isLoaded, setIsLoaded] = useState(false);
@@ -217,6 +218,7 @@ function App() {
               className="pt-8 pb-32 px-4 flex flex-col items-center bg-[#E3E3E3] min-h-full transition-transform duration-200 ease-out origin-top w-full gap-6"
               style={{ transform: `scale(${zoom / 100})` }}
             >
+              <ProfilePage isLoaded={isLoaded} />
               <ResumePage isLoaded={isLoaded} />
               <ProjectsPage isLoaded={isLoaded} />
               <SkillsPage isLoaded={isLoaded} />
