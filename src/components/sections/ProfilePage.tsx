@@ -78,7 +78,7 @@ export default function ProfilePage({ isLoaded }: ProfilePageProps) {
                 <div className="bg-gray-50 p-4 border-l-4 border-[var(--word-blue)]">
                   <h4 className="font-ui font-bold text-xs uppercase tracking-widest text-gray-500 mb-2">Core Philosophy</h4>
                   <p className="font-document text-sm text-[var(--word-text)] italic">
-                    "Simplicity is the ultimate sophistication."
+                    "Simplicity is the ultimate sophistication." — Leonardo da Vinci
                   </p>
                 </div>
                 
