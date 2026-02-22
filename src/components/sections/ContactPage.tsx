@@ -189,7 +189,7 @@ export default function ContactPage({ isLoaded }: ContactPageProps) {
                     <Phone className="w-4 h-4 text-[var(--word-blue)]" />
                     <span className="font-document text-xs font-bold text-[var(--word-text-secondary)] uppercase">Phone</span>
                   </div>
-                  <p className="font-document text-sm text-[var(--word-text)]">0946-463-0517</p>
+                  <p className="font-document text-sm text-[var(--word-text)]">0997-247-9983</p>
                   <p className="font-document text-xs text-[var(--word-text-secondary)] mt-1">Available for calls and SMS</p>
                 </div>
 
