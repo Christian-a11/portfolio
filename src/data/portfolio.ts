@@ -59,6 +59,6 @@ export const personalInfo = {
   name: "CHRISTIAN A. PARRA",
   title: "Full-Stack Developer",
   location: "Tagaytay City, Cavite, Philippines",
-  phone: "0946-463-0517",
+  phone: "0997-247-9983",
   email: "parrachristianpersonal@gmail.com"
 };
